@@ -321,7 +321,7 @@ class Loader:
         cert = x509.load_pem_x509_certificate(self.loaded_pki_bytes.cert)
         expiration_date = cert.not_valid_after_utc
         if datetime.datetime.now(tz=datetime.timezone.utc) > expiration_date:
-            raise Pypki3Exception(f'Certificate expired on {expiration_date}. Please renew your certificate.')
+            print(f'Certificate expired on {expiration_date}. Please renew your certificate.')
 
     def ca_path(self) -> Path:
         'Convenience function for getting the certificate authority file path.'
